@@ -1,6 +1,6 @@
 # bluetooth-bridge
 
-![Demo](doc\demo.gif)
+![Demo](https://github.com/RTnhN/bluetooth-bridge/blob/main/doc/demo.gif)
 
 This repo uses an arduino as a bridge device to an iphone so that I can type on my computer and use it as a input device for my phone. I use Reflector 4 as an airplay receiver, so this allows me to type stuff on my phone on my monitor. Since I only want to type stuff into my phone while engaging with my phone , this checks if the Reflector 4 window is selected. 
 
