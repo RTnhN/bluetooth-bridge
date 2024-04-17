@@ -21,6 +21,7 @@ def send_command(command):
 def on_press(event):
     global send_keystrokes, spinner_position
     if send_keystrokes:
+        clear_line()
         if event.name == "space":
             send_command("SPACE")
         elif event.name == "backspace":
