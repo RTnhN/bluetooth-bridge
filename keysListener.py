@@ -10,6 +10,8 @@ send_keystrokes = False
 spinner_position = 0
 spinner_states = ['|', '/', '-', '\\']  # Spinner animation frames
 
+IGNORE_WORDS = ["shift", "caps lock"]
+
 # Setup serial connection (adjust 'COM8' to your Arduino's serial port)
 ser = serial.Serial('COM8', 115200, timeout=1)
 
@@ -28,7 +30,7 @@ def on_press(event):
             send_command("BACKSPACE")
         elif event.name == "enter":
             send_command("ENTER")
-        elif event.name == "shift": # My Keyboard automatically sends the caps, so shift is not needed
+        elif event.name in IGNORE_WORDS:
             pass
         else:
             # Sending regular key press as normal text
