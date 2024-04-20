@@ -32,6 +32,14 @@ def on_press(event):
             send_command("ENTER")
         elif event.name in IGNORE_WORDS:
             pass
+        elif event.name == "right":
+            send_command("RIGHT")
+        elif event.name == "left":
+            send_command("LEFT")
+        elif event.name == "up":
+            send_command("UP")
+        elif event.name == "down":
+            send_command("DOWN")
         else:
             # Sending regular key press as normal text
             send_command(event.name)
