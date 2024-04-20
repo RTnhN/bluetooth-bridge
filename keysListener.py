@@ -2,6 +2,7 @@ import serial
 import keyboard
 from pynput import mouse
 import pygetwindow as gw
+import pyperclip
 import sys
 import time
 
@@ -21,10 +22,17 @@ def send_command(command):
     ser.write(wrapped_command.encode())
 
 def on_press(event):
-    global send_keystrokes, spinner_position
+    global send_keystrokes, spinner_position, ctrl_pressed
     if send_keystrokes:
         clear_line()
-        if event.name == "space":
+        if event.name == "ctrl":
+            ctrl_pressed = True
+        elif event.name == "v" and ctrl_pressed:
+            clipboard_content = pyperclip.paste()
+            for char in clipboard_content:
+                send_command(char)
+            ctrl_pressed = False
+        elif event.name == "space":
             send_command("SPACE")
         elif event.name == "backspace":
             send_command("BACKSPACE")
